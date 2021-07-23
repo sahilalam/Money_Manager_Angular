@@ -1,0 +1,32 @@
+<mat-grid-list cols="3" rowHeight="3:2">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="card">
+            <mat-card-title>
+                Login
+            </mat-card-title>
+            <form #model="ngForm" (ngSubmit)="login(model)">
+                <mat-card-content>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter Your Username</mat-label>
+                        <input matInput placeholder="Username" ngModel name="username" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter Your Passowrd</mat-label>
+                        <input matInput placeholder="Password" type="password" ngModel name="password" required>
+                    </mat-form-field>
+                    <button class="example-full-width" type="submit" mat-button>
+                     <mat-grid-list cols="3" class="height-max-content" rowHeight="3:1">
+                            <mat-grid-tile></mat-grid-tile>
+                            <mat-grid-tile> 
+                                <mat-spinner diameter="20"  class="example-full-width"  *ngIf="show; else elseBlock">
+                                </mat-spinner>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                        <ng-template #elseBlock>Submit</ng-template>
+                    </button>
+                </mat-card-content>
+            </form>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

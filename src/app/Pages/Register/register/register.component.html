@@ -1,0 +1,29 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="card">
+            <mat-card-title>
+                Register Email
+            </mat-card-title>
+            <form #model="ngForm" (ngSubmit)="register(model)">
+                <mat-card-content>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter Your E-Mail Address</mat-label>
+                        <input matInput placeholder=" email " ngModel name="email" required [disabled]="show===true?true:false">
+                    </mat-form-field>
+                    <button class="example-full-width" type="submit" mat-button>
+                        <mat-grid-list cols="3" class="height-max-content" rowHeight="3:1">
+                            <mat-grid-tile></mat-grid-tile>
+                            <mat-grid-tile> 
+                                <mat-spinner diameter="20"  class="example-full-width"  *ngIf="show; else elseBlock">
+                                </mat-spinner>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                   
+                    <ng-template #elseBlock>Submit</ng-template>
+                    </button>
+                </mat-card-content>
+            </form>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
