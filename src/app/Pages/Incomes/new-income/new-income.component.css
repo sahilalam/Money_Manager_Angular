@@ -1,0 +1,17 @@
+.example-full-width {
+    width: 100%;
+}
+
+.card {
+    width: 90%;
+}
+
+::ng-deep .success {
+    color: white;
+    background: rgb(0, 160, 0);
+}
+
+::ng-deep .error {
+    color: white;
+    background-color: rgb(218, 1, 1);
+}

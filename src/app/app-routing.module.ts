@@ -3,16 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './Pages/Register/register/register.component';
 import { LoginComponent } from './Pages/Login/login/login.component';
 import { RegisterUserComponent } from './Pages/RegisterUser/register-user/register-user.component';
-import { DashboardComponent } from './Pages/Dashboard/dashboard/dashboard.component';
+import { HomeComponent } from './Pages/Home/home/home.component';
 
-const home = (window.localStorage.accessToken) ? '/dashboard' : '/register';
+const home = (window.localStorage.accessToken) ? '/home' : '/register';
 
 const routes: Routes = [
 
   { path: 'register', component: RegisterComponent, },
   { path: 'register/:encrypted_mail', component: RegisterUserComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'home', component: HomeComponent },
   { path: '', redirectTo: home, pathMatch: 'full' },
 ];
 

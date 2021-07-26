@@ -7,7 +7,9 @@ const config = {
         getIncome: "get_income",
         addIncome: "add_income",
         updateIncome: "update_income",
-        addExpense: "add_expense"
+        addExpense: "add_expense",
+        getExpense: "get_expense",
+        updateExpense: "update_expense"
     }
 
 };

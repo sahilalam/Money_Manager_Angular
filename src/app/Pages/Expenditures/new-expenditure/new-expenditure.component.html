@@ -1,0 +1,53 @@
+<mat-grid-list cols="3" rowHeight="600px">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="card">
+            <mat-card-title>
+                New Expenditure
+            </mat-card-title>
+            <form #model="ngForm" (ngSubmit)="newExpenditure(model)">
+                <mat-card-content>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter Amount</mat-label>
+                        <input matInput placeholder="Amount in Rs." ngModel name="amount" type="number" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter Description</mat-label>
+                        <input matInput placeholder="Description" ngModel name="description" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Date</mat-label>
+                        <input matInput name="date" ngModel type="datetime-local" required>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Division</mat-label>
+                        <mat-select name="division" ngModel required>
+                            <mat-option *ngFor="let division of divisions" [value]="division.value">
+                                {{division.value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <mat-select name="category" ngModel required>
+                            <mat-option *ngFor="let category of categories" [value]="category.value">
+                                {{category.value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <button class="example-full-width" type="submit" mat-button>
+                     <mat-grid-list cols="3" class="height-max-content" rowHeight="3:1">
+                            <mat-grid-tile></mat-grid-tile>
+                            <mat-grid-tile> 
+                                <mat-spinner diameter="20"  class="example-full-width"  *ngIf="show; else elseBlock">
+                                </mat-spinner>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                        <ng-template #elseBlock>Submit</ng-template>
+                    </button>
+                </mat-card-content>
+            </form>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

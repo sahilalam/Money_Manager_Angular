@@ -18,7 +18,7 @@ export class AppComponent {
   handleLogOut() {
     window.localStorage.removeItem("accessToken");
     this.accessToken = undefined;
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   verify(): void {

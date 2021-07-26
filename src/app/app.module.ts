@@ -20,6 +20,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MoneyManagerService } from './Services/money-manager.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HomeComponent } from './Pages/Home/home/home.component';
+import { NewIncomeComponent } from './Pages/Incomes/new-income/new-income.component';
+import { NewExpenditureComponent } from './Pages/Expenditures/new-expenditure/new-expenditure.component';
+import { MatSelectModule } from '@angular/material/select';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +35,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RegisterUserComponent,
     DashboardComponent,
     IncomesComponent,
-    ExpendituresComponent
+    ExpendituresComponent,
+    HomeComponent,
+    NewIncomeComponent,
+    NewExpenditureComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +54,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     FormsModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [MoneyManagerService],
   bootstrap: [AppComponent]

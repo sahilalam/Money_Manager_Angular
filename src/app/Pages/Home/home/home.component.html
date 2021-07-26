@@ -1,0 +1,19 @@
+<div>
+    <mat-tab-group *ngIf="accessToken">
+        <mat-tab label="Dashboard">
+            <app-dashboard></app-dashboard>
+        </mat-tab>
+        <mat-tab label="Income History">
+            <app-incomes></app-incomes>
+        </mat-tab>
+        <mat-tab label="Expenditure History">
+            <app-expenditures></app-expenditures>
+        </mat-tab>
+        <mat-tab label="Add New Income">
+            <app-new-income></app-new-income>
+        </mat-tab>
+        <mat-tab label="Add New Expenditure">
+            <app-new-expenditure></app-new-expenditure>
+        </mat-tab>
+    </mat-tab-group>
+</div>
