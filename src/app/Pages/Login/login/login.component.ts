@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.show = false;
         window.localStorage.accessToken = data.body.access_token;
         this.changeNav.emit();
-        this.router.navigate(['/'])
+        this.router.navigate(['/home'])
       }, (err) => {
         this.show = false;
         this.openSnackBar(err.error.message, false);

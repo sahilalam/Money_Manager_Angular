@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MoneyManagerService } from 'src/app/Services/money-manager.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,6 +10,7 @@ import { AddIncome } from 'src/app/Models';
   styleUrls: ['./new-income.component.css']
 })
 export class NewIncomeComponent implements OnInit {
+  @Output() refreshIncomeData: EventEmitter<any> = new EventEmitter();
   show: boolean = false;
   constructor(private services: MoneyManagerService, private _snackBar: MatSnackBar) { }
 
@@ -35,6 +36,7 @@ export class NewIncomeComponent implements OnInit {
 
       this.services.addIncome(params).subscribe((data) => {
         this.show = false;
+        this.refreshIncomeData.emit();
         this.openSnackBar(data.body.message, true)
       }, (err) => {
         this.show = false;

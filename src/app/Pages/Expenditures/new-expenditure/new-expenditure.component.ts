@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Select } from './Models';
 import { MoneyManagerService } from 'src/app/Services/money-manager.service';
@@ -11,6 +11,7 @@ import { AddExpenditure } from 'src/app/Models';
   styleUrls: ['./new-expenditure.component.css']
 })
 export class NewExpenditureComponent implements OnInit {
+  @Output() refreshExpenditureData: EventEmitter<any> = new EventEmitter();
   show: boolean = false;
   divisions: Select[] = [
     {
@@ -66,7 +67,8 @@ export class NewExpenditureComponent implements OnInit {
 
       this.services.addExpense(params).subscribe((data) => {
         this.show = false;
-        this.openSnackBar(data.body.message, true)
+        this.openSnackBar(data.body.message, true);
+        this.refreshExpenditureData.emit();
       }, (err) => {
         this.show = false;
         this.openSnackBar(err.error.message, false);

@@ -4,16 +4,16 @@
             <app-dashboard></app-dashboard>
         </mat-tab>
         <mat-tab label="Income History">
-            <app-incomes></app-incomes>
+            <app-incomes [change]="incomeChanged"></app-incomes>
         </mat-tab>
         <mat-tab label="Expenditure History">
-            <app-expenditures></app-expenditures>
+            <app-expenditures [change]="expenditureChanged"></app-expenditures>
         </mat-tab>
         <mat-tab label="Add New Income">
-            <app-new-income></app-new-income>
+            <app-new-income (refreshIncomeData)="refreshIncomes()"></app-new-income>
         </mat-tab>
         <mat-tab label="Add New Expenditure">
-            <app-new-expenditure></app-new-expenditure>
+            <app-new-expenditure (refreshExpenditureData)="refreshExpenditures()"></app-new-expenditure>
         </mat-tab>
     </mat-tab-group>
 </div>

@@ -11,3 +11,15 @@ export type AddIncome = {
     description: string;
     date: string
 }
+
+export type getExpenditure = {
+    from: string;
+    to: string;
+    division: string;
+    category: string;
+}
+
+export type getIncome = {
+    from: string;
+    to: string;
+}

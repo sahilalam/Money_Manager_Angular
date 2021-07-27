@@ -25,6 +25,7 @@ import { HomeComponent } from './Pages/Home/home/home.component';
 import { NewIncomeComponent } from './Pages/Incomes/new-income/new-income.component';
 import { NewExpenditureComponent } from './Pages/Expenditures/new-expenditure/new-expenditure.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTabsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [MoneyManagerService],
   bootstrap: [AppComponent]

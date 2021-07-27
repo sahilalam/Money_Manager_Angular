@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import config from 'config';
-import { AddExpenditure, AddIncome } from '../Models';
+import { AddExpenditure, AddIncome, getExpenditure, getIncome } from '../Models';
 
 @Injectable({
   providedIn: 'root'
@@ -48,10 +48,10 @@ export class MoneyManagerService {
     })
   }
 
-  getIncome(access_token: string, from: string, to: string): Observable<any> {
-    return this.httpClient.get(config.baseUrl + config.endpoints.getIncome + "/" + from + "/+" + to, {
+  getIncome(params: getIncome): Observable<any> {
+    return this.httpClient.get(config.baseUrl + config.endpoints.getIncome + "/" + params.from + "/" + params.to, {
       headers: {
-        authorization: access_token
+        authorization: window.localStorage.accessToken
       },
       observe: 'response'
     })
@@ -59,7 +59,11 @@ export class MoneyManagerService {
 
   addIncome(params: AddIncome): Observable<any> {
     return this.httpClient.post(config.baseUrl + config.endpoints.addIncome,
-      params,
+      {
+        amount: params.amount,
+        description: params.description,
+        date: params.date
+      },
       {
         headers: {
           authorization: window.localStorage.accessToken
@@ -95,10 +99,10 @@ export class MoneyManagerService {
     )
   }
 
-  getExpense(access_token: string, from: string, to: string, division: string, category: string): Observable<any> {
-    return this.httpClient.get(config.baseUrl + config.endpoints.getExpense + "/" + from + "/+" + to + "/" + category + "/" + division, {
+  getExpense(params: getExpenditure): Observable<any> {
+    return this.httpClient.get(config.baseUrl + config.endpoints.getExpense + "/" + params.from + "/+" + params.to + "/" + params.category + "/" + params.division, {
       headers: {
-        authorization: access_token
+        authorization: window.localStorage.accessToken
       },
       observe: 'response'
     })
